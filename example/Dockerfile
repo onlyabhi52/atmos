@@ -53,10 +53,16 @@ ENV AWS_DEFAULT_REGION=us-east-2
 RUN apk add kubectl-1.17@cloudposse
 
 # Install terraform.
-RUN apk add -u terraform-0.12@cloudposse==0.12.30-r0 terraform-0.13@cloudposse==0.13.7-r0 terraform-0.14@cloudposse==0.14.11-r0 terraform-0.15@cloudposse==0.15.4-r0
-# Set Terraform 0.14.x as the default `terraform`. You can still use
-# `terraform-0.12`, `terraform-0.13` or `terraform-0.15` to be explicit when needed.
-RUN update-alternatives --set terraform /usr/share/terraform/0.14/bin/terraform
+RUN apk add -u \
+    terraform-0.12@cloudposse==0.12.30-r0 \
+    terraform-0.13@cloudposse==0.13.7-r0 \
+    terraform-0.14@cloudposse==0.14.11-r0 \
+    terraform-0.15@cloudposse==0.15.4-r0 \
+    terraform-1@cloudposse
+
+# Set Terraform 1.xx as the default `terraform`. You can still use
+# `terraform-0.12`, `terraform-0.13`, `terraform-0.14` or `terraform-0.15` to be explicit when needed.
+RUN update-alternatives --set terraform /usr/share/terraform/1/bin/terraform
 
 # Install vendir
 RUN apk add vendir@cloudposse
