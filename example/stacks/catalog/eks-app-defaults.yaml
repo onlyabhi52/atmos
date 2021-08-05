@@ -1,0 +1,16 @@
+import:
+   - catalog/services/service-1-defaults
+   - catalog/services/service-2-defaults
+
+components:
+  terraform:
+
+    eks-app-1:
+      vars:
+        name: app-1
+
+    eks-app-2:
+      vars:
+        name: app-2
+
+  helmfile: {}

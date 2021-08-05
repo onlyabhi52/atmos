@@ -1,6 +1,9 @@
 import:
   - globals
   - globals-2
+  - catalog/eks-defaults
+  - catalog/s3-defaults
+  - catalog/rds-defaults
 
 vars:
   region: us-east-2
